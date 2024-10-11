@@ -3,7 +3,7 @@ import json
 import openai
 import time
 import uuid
-from mitmproxy import http
+from mitmproxy import http # type: ignore
 from tiktoken import get_encoding
 import tkinter as tk
 from tkinter import messagebox
@@ -30,7 +30,7 @@ encoding = get_encoding("cl100k_base")
 
 def process_request(request_data):
     messages = request_data['messages']
-    completion = client.chat.completions.create(
+    completion = client.chat.completions.create( # type: ignore
         model="gpt-4-0125-preview",
         temperature=0.7,
         messages=messages,
